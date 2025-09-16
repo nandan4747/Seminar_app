@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="526.0" maxWidth="684.0" prefHeight="526.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.ServerIpInputPage">
+   <children>
+      <StackPane fx:id="outer_layout" layoutX="80.8" layoutY="68.0" prefHeight="302.0" prefWidth="505.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="278.0" prefWidth="467.0">
+               <children>
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="!!This window is appeared due to CHANGE in IP Address of Server or Server is currently OFFLINE">
+                     <VBox.margin>
+                        <Insets bottom="8.0" top="-19.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="If the SERVER is not OFFLINE -&gt;In order to open the app you need to add IP Address (IPV4) of Server in below Textfield" textAlignment="CENTER" wrappingWidth="659.6495361328125">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="ip_text" alignment="CENTER" prefHeight="26.0" prefWidth="328.0" promptText="Enter server's ip address here and click on &quot;Add IP&quot;" />
+                  <Button fx:id="add_ip_btn" mnemonicParsing="false" text="Add IP" textFill="#000dff">
+                     <VBox.margin>
+                        <Insets bottom="-17.0" top="22.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="close_btn" mnemonicParsing="false" text="Close" textFill="RED">
+                     <VBox.margin>
+                        <Insets top="34.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Text fill="#0900ff" strokeType="OUTSIDE" strokeWidth="0.0" text="After adding IP Address of Server ,Please Re-start the app" textAlignment="CENTER" wrappingWidth="310.93669509887695">
+                     <VBox.margin>
+                        <Insets bottom="-25.0" top="12.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

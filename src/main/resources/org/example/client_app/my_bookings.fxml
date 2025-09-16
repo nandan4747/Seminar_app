@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.transform.Scale?>
+
+<BorderPane prefHeight="800.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.BookingStatusController">
+
+    <!-- Top App Bar -->
+    <top>
+        <AnchorPane style="-fx-background-color: #0D1B4C;" BorderPane.alignment="CENTER">
+            <padding><Insets bottom="15" left="20" right="20" top="15" /></padding>
+            <children>
+                <!-- Clickable Back Arrow Area -->
+                <StackPane alignment="CENTER_LEFT" style="-fx-cursor: hand;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <SVGPath content="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="WHITE">
+                            <transforms><Scale x="1.5" y="1.5" /></transforms>
+                        </SVGPath>
+                    </children>
+                </StackPane>
+
+                <VBox alignment="CENTER" layoutX="82.4" prefWidth="368.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="Booking Status" textFill="WHITE">
+                            <font><Font name="System Bold" size="20.0" /></font>
+                        </Label>
+                        <!-- Label with fx:id to be updated from controller -->
+                        <Label fx:id="dateLabel" text="Month Year" textFill="LIGHTGRAY" />
+                    </children>
+                </VBox>
+            <Button fx:id="back_btn" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="36.0" text="&lt;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
+            </children>
+        </AnchorPane>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <VBox spacing="20.0" style="-fx-background-color: #F5F5F5;" BorderPane.alignment="CENTER">
+            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+            <children>
+
+                <!-- Summary Section -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10;" VBox.vgrow="NEVER">
+                    <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                    <children>
+                        <HBox alignment="CENTER" spacing="30.0">
+                            <children>
+                                <VBox alignment="CENTER" spacing="5.0">
+                                    <children>
+                                        <Label fx:id="totalLabel" style="-fx-text-fill: #000000;" text="0">
+                                            <font><Font name="System Bold" size="22.0" /></font>
+                                        </Label>
+                                        <Label text="Total" textFill="GRAY" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" spacing="5.0">
+                                    <children>
+                                        <Label fx:id="approvedLabel" style="-fx-text-fill: #4CAF50;" text="0">
+                                            <font><Font name="System Bold" size="22.0" /></font>
+                                        </Label>
+                                        <Label text="Approved" textFill="GRAY" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" spacing="5.0">
+                                    <children>
+                                        <Label fx:id="pendingLabel" style="-fx-text-fill: #FF9800;" text="0">
+                                            <font><Font name="System Bold" size="22.0" /></font>
+                                        </Label>
+                                        <Label text="Pending" textFill="GRAY" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" spacing="5.0">
+                                    <children>
+                                        <Label fx:id="deniedLabel" style="-fx-text-fill: #F44336;" text="0">
+                                            <font><Font name="System Bold" size="22.0" /></font>
+                                        </Label>
+                                        <Label text="Denied" textFill="GRAY" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- Separator Line -->
+                <Region prefHeight="1.0" style="-fx-background-color: #E0E0E0;" />
+
+                <!-- Upcoming Section -->
+                <VBox spacing="15.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <BorderPane>
+                            <left>
+                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                    <children>
+                                        <SVGPath content="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z" fill="#555555">
+                                            <transforms><Scale x="0.9" y="0.9" /></transforms>
+                                        </SVGPath>
+                                        <Label text="Upcoming" textFill="#333333">
+                                            <font><Font name="System Bold" size="18.0" /></font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </left>
+                            <right>
+                                <Label text="5 bookings" textFill="GRAY" BorderPane.alignment="CENTER" />
+                            </right>
+                     <center>
+                        <Text fx:id="anouncer" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading Please wait.." wrappingWidth="173.51758575439453" BorderPane.alignment="CENTER" />
+                     </center>
+                        </BorderPane>
+
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="bookingsContainer" spacing="15.0">
+                                    <padding><Insets bottom="10.0" /></padding>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </VBox>
+
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

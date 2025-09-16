@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="main_container" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.Main_Admin_page_Controller">
+   <style>
+      -fx-background-color:rgb(191, 191, 191);
+   </style>
+   <children>
+      <HBox alignment="BOTTOM_CENTER" layoutX="8.2" layoutY="211.2" prefHeight="46.0" prefWidth="615.0" AnchorPane.leftAnchor="8.2" AnchorPane.rightAnchor="82.20000000000005" AnchorPane.topAnchor="211.2">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pending requests">
+               <font>
+                  <Font name="HP Simplified Jpan Regular" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="6.0" left="95.0" />
+               </HBox.margin>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.557894766330719" green="0.557894766330719" blue="0.557894766330719" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.2947368323802948" green="0.2947368323802948" blue="0.2947368323802948" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+         </children>
+      </HBox>
+      <ListView fx:id="list_view" layoutX="19.2" layoutY="259.2" prefHeight="222.0" prefWidth="663.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="259.0">
+         <style>
+            -fx-border-width:2px;
+            -fx-border-radius:8px;
+            -fx-background-radius:8px;
+            -fx-border-color:linear-gradient(to top left, #57534e, #a8a29e, #e7e5e4);
+         </style>
+         <effect>
+            <DropShadow color="#313131" offsetY="10" radius="18" />
+         </effect>
+      </ListView>
+      <Button fx:id="refresh_btn" layoutX="622.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" rotate="0.2" text="🔄" textFill="WHITE" AnchorPane.rightAnchor="23.0">
+         <style>
+            -fx-border-width:0px;
+            -fx-border-radius:8px;
+            -fx-background-radius:8px;
+            -fx-background-color:rgb(230, 230, 230);
+            -fx-text-fill:black;
+         </style>
+         <effect>
+            <DropShadow color="#313131" offsetY="6" radius="9" />
+         </effect>
+      </Button>
+      <VBox alignment="TOP_CENTER" layoutX="136.0" prefHeight="190.0" prefWidth="425.0" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="logo" fitHeight="146.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@file_0000000011a061f5af8ad9fcc87fe1ef.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <VBox.margin>
+                  <Insets left="23.0" />
+               </VBox.margin>
+               
+            </ImageView>
+            <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="RNS FGC">
+               <font>
+                  <Font name="Cambria Math" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="28.0" top="-23.0" />
+               </VBox.margin>
+               <fill>
+                  <RadialGradient centerX="0.49118943571519225" centerY="0.5037878571134625" focusAngle="-168.31" focusDistance="-0.01834869384765625" radius="0.7110091480640096">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.4736842215061188" green="0.4736842215061188" blue="0.4736842215061188" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007680491551459294">
+                           <color>
+                              <Color red="0.4421052634716034" green="0.4421052634716034" blue="0.4421052634716034" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.24210526049137115" green="0.24210526049137115" blue="0.24210526049137115" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Text>
+         </children>
+      </VBox>
+      <Button fx:id="pfp_btn" layoutX="651.2" layoutY="4.8" mnemonicParsing="false" prefHeight="39.0" prefWidth="41.0" AnchorPane.rightAnchor="11.399999999999977" AnchorPane.topAnchor="3.8">
+         <graphic>
+            <ImageView fitHeight="63.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pfp_img.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <style>
+            -fx-background-color:transparent;
+         </style>
+         <effect>
+            <DropShadow color="#424242" offsetY="8" radius="8" />
+         </effect>
+      </Button>
+      <VBox fx:id="slide_bar" layoutX="565.0" layoutY="44.0" prefHeight="146.0" prefWidth="172.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="65.0">
+         <style>
+            -fx-background-color:rgb(242, 242, 242);
+            -fx-border-width:0px;
+            -fx-background-radius:8px;
+            -fx-border-radius:8px;
+         </style>
+         <effect>
+            <DropShadow color="#424242" offsetY="8" radius="8" />
+         </effect>
+         <children>
+            <HBox fx:id="user_info_hbox" prefHeight="62.0" prefWidth="136.0">
+               <children>
+                  <ImageView fitHeight="61.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <DropShadow color="#424242" offsetY="8" radius="8" />
+                     </effect>
+                     <image>
+                        <Image url="@pfp_img.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Button fx:id="chnage_password_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color:transparent;" text="Change Password " />
+            <Button fx:id="admin_log_out_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color:transparent;" text="Logout ⏻" />
+            <Button fx:id="close_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color:transparent;" text="❌ Close " />
+         </children>
+      </VBox>
+      <Button fx:id="menue_btn" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" text="☰">
+         <style>
+            -fx-background-color:transparent;
+         </style>
+      </Button>
+      <VBox fx:id="action_vbox" alignment="TOP_CENTER" layoutX="14.0" layoutY="44.0" prefHeight="62.0" prefWidth="98.0">
+         <style>
+            -fx-background-color:rgb(242, 242, 242);
+            -fx-background-radius:8px;
+         </style>
+         <effect>
+            <DropShadow color="#424242" offsetY="8" radius="8" />
+         </effect>
+         <children>
+            <Button fx:id="new_user_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" style=" -fx-background-color:transparent;" text="New Users">
+               <VBox.margin>
+                  <Insets top="4.0" />
+               </VBox.margin></Button>
+            <Button fx:id="close_action_vbox" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" style=" -fx-background-color:transparent;" text="❌ Close ">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+      <VBox fx:id="loading_overlay" alignment="CENTER" layoutX="40.0" prefHeight="586.0" prefWidth="629.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+         <style>
+            -fx-background-color:rgb(0, 0, 0, 0.42);
+         </style>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loading....">
+               <style>
+                  -fx-fill:linear-gradient(from 0% 0% to 100% 0% ,rgb(117, 3, 255),rgb(3, 145, 255),rgb(3, 240, 255));
+               </style>
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

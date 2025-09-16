@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="main_large_container" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.LoginController">
+   <StackPane fx:id="stack_pane" layoutX="366.4" layoutY="6.0" prefHeight="820.0" prefWidth="1154.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="366.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="140.0">
+       <effect>
+           <DropShadow color="#5a5c5c" offsetX="6" offsetY="10" radius="10" />
+       </effect>
+      <children>
+          <VBox fx:id="inner_main_container" alignment="CENTER" prefHeight="811.0" prefWidth="1141.0" spacing="18">
+              <Label style="-fx-text-fill: #1A73E8;" text="Seminar Hall Login" />
+              
+                          <TextField fx:id="usernameField" maxWidth="240" promptText="Username" style="-fx-background-radius:8; -fx-padding: 8 8 8 8;" />
+              
+                    <PasswordField fx:id="passwordField" maxWidth="240" promptText="Password" style="-fx-background-radius:8; -fx-padding: 8 8 8 8;" />
+              
+                    <HBox alignment="CENTER_LEFT" maxWidth="240" spacing="10">
+                  <CheckBox fx:id="rememberMeCheckBox" style="-fx-text-fill: #1A73E8;" text="Remember me" />
+              </HBox>
+              
+                    <HBox alignment="CENTER_LEFT" maxWidth="316.0" prefHeight="18.0" prefWidth="316.0" spacing="15">
+                  <Label style="-fx-text-fill: #1A73E8;" text="Department:" />
+                  <RadioButton fx:id="bcaRadio" prefHeight="18.0" prefWidth="61.0" text="BCA" />
+                  <RadioButton fx:id="bbaRadio" text="BBA" />
+                  <RadioButton fx:id="bcomRadio" text="BCOM" />
+              </HBox>
+              
+                    <Button fx:id="loginButton" maxWidth="240" onAction="#handleLogin" style="-fx-background-color:#1A73E8; -fx-text-fill:#ffffff; -fx-background-radius:8; -fx-font-size:14px;" text="Login" />
+            <Text fx:id="warning_text" fill="red" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="357.3366947174072" />
+            <Button fx:id="admin_login_switch" mnemonicParsing="false" prefHeight="26.0" prefWidth="142.0" text="Switch to Admin" textFill="WHITE" />
+          </VBox>
+      </children>
+   </StackPane>
+</AnchorPane>
