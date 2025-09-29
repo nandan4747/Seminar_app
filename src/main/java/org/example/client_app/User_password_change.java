@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +36,12 @@ public class User_password_change implements Initializable {
     Connection_Manager connectionManager = helper.get_instance();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Alert warning = new Alert(Alert.AlertType.ERROR);
+        warning.setTitle("Wrong Old Password!!!");
+        warning.setContentText("please enter propper old password..");
+        Alert alert= new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setContentText("password successfully changed.....");
         // change password button
         action_btn.setOnAction(event -> {
             String old_password = old_password_text.getText();
@@ -58,10 +65,15 @@ public class User_password_change implements Initializable {
 
             if(response.equals("<invalid>")){
                 notification.setText("incorrect old password!!");
+                warning.show();
             }
             else if(response.equals("<Done>")){
+                alert.show();
                 notification.setText("password updated!!!");
             } else if (response.equals("<NotDone>")) {
+                warning.setTitle("Error");
+                warning.setContentText("Some error has occurred please try again later...");
+                warning.show();
                 notification.setText("some error occurred");
             }
         });
