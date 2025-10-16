@@ -1,5 +1,7 @@
 package org.example.client_app;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import javax.swing.text.DateFormatter;
@@ -26,13 +29,13 @@ public class Hall_booking_Controller implements Initializable {
     ComboBox <String> slotComboBox;
 
     @FXML
-    Button validateButton,Myrequest,change_password,logOut;
+    Button validateButton,Myrequest,change_password,logOut,user_info_toogle;
     @FXML
     TextArea purpose;
     @FXML Button confirmButton;
 
     @FXML
-    VBox info_box,loading_overlay;
+    VBox info_box,loading_overlay,menu,loading_screen;
 
     Conncetion_helper conncetion_helper = new Conncetion_helper();
     Connection_Manager connectionManager = conncetion_helper.get_instance();
@@ -50,6 +53,26 @@ public class Hall_booking_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //popup
+        loading_screen.setVisible(false);
+
+        //menue toggle
+        menu.setVisible(false);
+        user_info_toogle.setOnAction(event -> {
+           if(menu.isVisible()){
+               menu.setVisible(false);
+           }
+           else {
+               menu.setVisible(true);
+           }
+        });
+        //dis ableing booking button if any changes in date picking or slot picking
+        datePicker.setOnAction(event -> {
+            confirmButton.setDisable(true);
+        });
+        slotComboBox.setOnAction(event -> {
+            confirmButton.setDisable(true);
+        });
         loading_overlay.setVisible(false);
         //basic user info
         username = Main_Booking_Application.username;
@@ -69,6 +92,7 @@ public class Hall_booking_Controller implements Initializable {
         validateButton.setOnAction(event -> {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             if(datePicker.getValue() != null) {
+
                 LocalDate localDate = datePicker.getValue();
                 this.date = localDate.format(dateTimeFormatter);
             }
@@ -79,29 +103,52 @@ public class Hall_booking_Controller implements Initializable {
             if(date != null && slot != null && !Purpose.isEmpty()) {
                 // sending request
                 connectionManager.push_request("get_date_info," + date + "," + slot);
+                loading_screen.setVisible(true);
+                Task <String> task = new Task<String>() {
 
-                do {
-                    try {
-                        Thread.sleep(1500);
-                        response = connectionManager.get_Response();
+                    String Response;
+                    @Override
+                    protected String call() throws Exception {
+                        do {
+                            try {
 
-                    } catch (InterruptedException e) {
-                        System.out.println("error while reading response");
-                        throw new RuntimeException(e);
+                                Thread.sleep(1500);
+                                response = connectionManager.get_Response();
+
+                            } catch (InterruptedException e) {
+                                System.out.println("error while reading response");
+                                throw new RuntimeException(e);
+                            }
+                        } while (response == null);
+                        return Response;
                     }
-                } while (response == null);
-                System.out.println(response);
-                if (response.equals("Available")) {
-                    confirmButton.setDisable(false);
-                    alert.setTitle("Available");
-                    alert.setContentText("slot is free Please click on Confirm Booking to proceed.");
-                    alert.show();
-                } else {
-                    warning.setTitle("UNAVAILABLE");
-                    warning.setHeaderText("Please try Another slot");
-                    warning.setContentText("this slot is already Booked or may Registered by someone else before you ");
+
+                };
+                task.setOnSucceeded(workerStateEvent -> {
+                    if (response.equals("Available")) {
+                        loading_screen.setVisible(false);
+                        confirmButton.setDisable(false);
+                        alert.setTitle("Available");
+                        alert.setContentText("slot is free Please click on Confirm Booking to proceed.");
+                        alert.show();
+                    } else {
+                        loading_screen.setVisible(false);
+                        warning.setTitle("UNAVAILABLE");
+                        warning.setHeaderText("Please try Another slot");
+                        warning.setContentText("this slot is already Booked or may Registered by someone else before you ");
+                        warning.show();
+                    }
+                });
+                task.setOnFailed(workerStateEvent -> {
+                    loading_screen.setVisible(false);
+                    warning.setTitle("error at reading response");
                     warning.show();
-                }
+
+                });
+                new Thread(task).start();
+
+                //System.out.println(response);
+
 
             }
             else{
@@ -127,29 +174,45 @@ public class Hall_booking_Controller implements Initializable {
             date = null;
             Purpose = null;
             slot = null;
+            Task<String> task = new Task<String>() {
 
-            do{
-                try {
-                    Thread.sleep(1500);
-                    response = connectionManager.get_Response();
-                } catch (InterruptedException e) {
-                    System.out.println("error while reading response");
-                    throw new RuntimeException(e);
+                @Override
+                protected String call() throws Exception {
+                    loading_screen.setVisible(true);
+                    do{
+                        try {
+                            Thread.sleep(1500);
+                            response = connectionManager.get_Response();
+                        } catch (InterruptedException e) {
+                            System.out.println("error while reading response");
+                            throw new RuntimeException(e);
+                        }
+                    }while (response.equals(null));
+                    return response;
                 }
-            }while (response.equals(null));
+            };
 
-            if(response.equals("NotAvailable")){
-                warning.setTitle("UNAVAILABLE");
-
-                warning.setContentText("Something went wrong!!");
+            task.setOnFailed(workerStateEvent -> {
+                loading_screen.setVisible(false);
+                warning.setTitle("error at booking");
                 warning.show();
-            }
+            });
+            task.setOnSucceeded(workerStateEvent -> {
+                loading_screen.setVisible(false);
+                if(response.equals("NotAvailable")){
+                    warning.setTitle("UNAVAILABLE");
 
-            else if(response.equals("<confirmed>")){
-                alert.setTitle("Booking Registered!!");
-                alert.setContentText("your request is sent for Confirmation to Your Respective Branch HOD.");
-                alert.show();
-            }
+                    warning.setContentText("Something went wrong!!");
+                    warning.show();
+                }
+
+                else if(response.equals("<confirmed>")){
+                    alert.setTitle("Booking Registered!!");
+                    alert.setContentText("your request is sent for Confirmation to Your Respective Branch HOD.");
+                    alert.show();
+                }
+            });
+            new Thread(task).start();
 
         });
 

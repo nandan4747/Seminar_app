@@ -177,7 +177,7 @@
                </VBox.margin></Button>
          </children>
       </VBox>
-      <VBox fx:id="loading_overlay" alignment="CENTER" layoutX="40.0" prefHeight="586.0" prefWidth="629.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+      <VBox fx:id="loading_overlay" alignment="CENTER" layoutX="40.0" prefHeight="586.0" prefWidth="629.0" visible="false" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
          <style>
             -fx-background-color:rgb(0, 0, 0, 0.42);
          </style>

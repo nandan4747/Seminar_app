@@ -21,7 +21,7 @@ public class Data_base_manager {
     public void primary_setup(){
         try {
             this.connection = DriverManager.getConnection(url);
-            /*PreparedStatement ps = connection.prepareStatement("update user_login_info set remember_login = 0;");
+            /*PreparedStatement ps = connection.prepareStatement("drop table user_login_information;");
             ps.executeUpdate();
             System.out.println("done");*/
         } catch (SQLException e) {
@@ -92,7 +92,7 @@ public class Data_base_manager {
         PreparedStatement statement = connection.prepareStatement(quearry);
         ResultSet rs = statement.executeQuery();
         if(rs.next()){
-            System.out.println("exe function");
+            //System.out.println("exe function");
             Main_Booking_Application.username = rs.getString("username");
             Main_Booking_Application.branch = rs.getString("branch");
 

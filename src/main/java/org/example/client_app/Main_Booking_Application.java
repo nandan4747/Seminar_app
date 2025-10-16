@@ -59,7 +59,7 @@ public class Main_Booking_Application extends Application {
                 }
             }
             Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("my app");
+            stage.setTitle("Seminar Hall Booking System");
             stage.setScene(scene);
             stage.show();
         }

@@ -12,72 +12,73 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="568.0" prefWidth="629.0" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.Hall_booking_Controller">
-   <VBox alignment="BASELINE_CENTER" layoutX="121.0" layoutY="57.0" prefHeight="450.0" prefWidth="441.0" spacing="30.0" AnchorPane.bottomAnchor="101.39999999999998" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="57.0">
-      <style>
-         -fx-background-color:linear-gradient(from 0% 0% to 100% 0% ,rgb(171, 171, 171),rgb(201, 201, 201));
+<AnchorPane prefHeight="639.0" prefWidth="612.0" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.Hall_booking_Controller">
+   <VBox alignment="CENTER" layoutX="115.2" layoutY="192.0" prefHeight="427.0" prefWidth="526.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="132.0">
+      <children>
+         <VBox alignment="BASELINE_CENTER" maxHeight="421.0" maxWidth="387.0" prefHeight="421.0" prefWidth="387.0" spacing="30.0">
+            <style>
+         -fx-background-color:rgb(4, 33, 91);
          -fx-border-width:2px;
          -fx-background-radius:8px;
          -fx-border-radius:8px;
          -fx-border-color:white;
       </style>
-      <effect>
-         <DropShadow color="rgb(74, 74, 74)" offsetX="10" offsetY="10" radius="50" />
-      </effect>
-      <children>
-      
-         <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="📅 Booking Scheduler">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-         </Label>
-         <Label text="Select Date:">
-            <VBox.margin>
-               <Insets top="10.0" />
-            </VBox.margin>
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-         </Label>
-         <DatePicker fx:id="datePicker" promptText="select date">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-         </DatePicker>
-         <ComboBox fx:id="slotComboBox" promptText="Select Slot">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-         </ComboBox>
-         <TextArea fx:id="purpose" prefHeight="62.0" prefWidth="385.0" promptText="Enter the purpose ">
-            <style>
+
+            <effect>
+               <DropShadow color="rgb(74, 74, 74)" offsetX="10" offsetY="10" radius="50" />
+            </effect>
+            <children>
+            
+               <Label style="-fx-font-size: 18px; -fx-font-weight: bold;-fx-text-fill:white;" text="📅 Booking Scheduler">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+
+               </Label>
+               <DatePicker fx:id="datePicker" promptText="select date">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </DatePicker>
+               <ComboBox fx:id="slotComboBox" promptText="Select Slot">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </ComboBox>
+               <TextArea fx:id="purpose" prefHeight="62.0" prefWidth="385.0" promptText="Enter the purpose ">
+                  <style>
                -fx-border-radius:8px;
                -fx-background-radius:8px;
             </style>
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-         </TextArea>
-         <Button fx:id="validateButton" style="-fx-background-color: green; -fx-text-fill: white;" text="Validate">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-         </Button>
-         <Button fx:id="confirmButton" style="-fx-background-color: blue; -fx-text-fill: white;" text="Confirm Booking">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-
-         </Button>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </TextArea>
+               <Button fx:id="validateButton" prefHeight="26.0" prefWidth="368.0" style="-fx-background-color: rgb(19, 237, 0); -fx-text-fill: white;" text="Validate">
+                  <VBox.margin>
+                     <Insets top="9.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="confirmButton" prefHeight="26.0" prefWidth="366.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Confirm Registering">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+      
+               </Button>
+            </children>
+            <padding>
+               <Insets bottom="19.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+         </VBox>
       </children>
-      <padding>
-         <Insets bottom="19.0" />
-      </padding>
    </VBox>
-   <VBox fx:id="menu" alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="182.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <VBox fx:id="menu" alignment="TOP_CENTER" layoutX="490.0" layoutY="190.0" prefHeight="200.0" prefWidth="182.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="118.0">
       <style>
          -fx-background-radius:8px;
          -fx-background-color:rgb(181, 181, 181);
@@ -129,6 +130,89 @@
                <Font size="34.0" />
             </font>
          </Text>
+      </children>
+   </VBox>
+   <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="132.0" prefWidth="612.0" AnchorPane.leftAnchor="-20.0" AnchorPane.rightAnchor="-20.0" AnchorPane.topAnchor="-20.0">
+      <style>
+         -fx-background-color:rgb(4, 33, 91);
+      </style>
+      <children>
+         <ImageView fitHeight="132.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+               <Image url="@applogo.jpg" />
+            </image>
+         </ImageView>
+         <Button fx:id="user_info_toogle" layoutX="481.0" layoutY="15.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="132.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+            <graphic>
+               <ImageView fitHeight="99.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@pfp_img.png" />
+
+                  </image>
+
+               </ImageView>
+            </graphic>
+            <style>
+               -fx-background-color:transparent;
+            </style>
+         </Button>
+         <VBox alignment="CENTER" layoutX="205.0" prefHeight="132.0" prefWidth="174.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="0.0">
+            <children>
+               <ImageView fitHeight="135.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@file_0000000011a061f5af8ad9fcc87fe1ef.png" />
+                  </image>
+                  <effect>
+                     <DropShadow color="white" offsetX="0" offsetY="0" radius="2" />
+                  </effect>
+               </ImageView>
+            </children>
+         </VBox>
+         <Text fontSmoothingType="LCD" layoutX="96.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEMINAR HALL">
+            <fill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" green="0.18654823303222656" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.8166666626930237" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </fill>
+            <font>
+               <Font name="System Bold" size="22.0" />
+            </font>
+         </Text>
+         <Text fill="WHITE" layoutX="96.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking System" />
+         <Text fill="WHITE" layoutX="525.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STAFF" AnchorPane.rightAnchor="43.7109375" AnchorPane.topAnchor="108.6640625">
+            <font>
+               <Font name="Berlin Sans FB" size="16.0" />
+            </font>
+         </Text>
+      </children>
+   </AnchorPane>
+   <VBox fx:id="loading_screen" alignment="CENTER" layoutX="20.0" layoutY="326.0" prefHeight="66.0" prefWidth="100.0" AnchorPane.bottomAnchor="246.6" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="306.20000000000005">
+      <children>
+         <Label text="Loading...." textFill="WHITE" visible="false">
+            <font>
+               <Font size="27.0" />
+            </font>
+            <style>
+               -fx-background-color:black;
+            </style>
+            <padding>
+               <Insets bottom="10.0" left="10.0" top="10.0" />
+            </padding>
+            <effect>
+               <DropShadow color="black" offsetX="0" offsetY="0" radius="40" />
+            </effect>
+         </Label>
       </children>
    </VBox>
 </AnchorPane>
