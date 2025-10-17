@@ -2,6 +2,7 @@ package org.example.client_app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -12,7 +13,7 @@ public class Main_Booking_Application extends Application {
     public static String branch;
     public static String user_type;
     int remember_me;
-    FXMLLoader fxmlLoader;
+    static FXMLLoader fxmlLoader;
     public static Boolean move_forword = false;
     @Override
     public void start(Stage stage) throws IOException {
@@ -27,7 +28,7 @@ public class Main_Booking_Application extends Application {
         // creating a connection
         Conncetion_helper helper = new Conncetion_helper();
         Connection_Manager server_connection = helper.get_instance();
-        server_connection.get_Connection("localhost",56000);
+        server_connection.get_Connection("seminar_server",56000);
         if(move_forword) {
             server_connection.Start_hear_response();
 
@@ -67,7 +68,7 @@ public class Main_Booking_Application extends Application {
 
     }
 
-    public static void main(String[] args) {
-        launch();
+    public static Parent start_app(String[] args) throws IOException {
+        return fxmlLoader.load();
     }
 }

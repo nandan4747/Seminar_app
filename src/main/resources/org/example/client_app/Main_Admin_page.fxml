@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="main_container" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.Main_Admin_page_Controller">
+<AnchorPane fx:id="main_container" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client_app.Main_Admin_page_Controller">
    <style>
       -fx-background-color:rgb(191, 191, 191);
    </style>
    <children>
-      <HBox alignment="BOTTOM_CENTER" layoutX="8.2" layoutY="211.2" prefHeight="46.0" prefWidth="615.0" AnchorPane.leftAnchor="8.2" AnchorPane.rightAnchor="82.20000000000005" AnchorPane.topAnchor="211.2">
+      <HBox alignment="BOTTOM_CENTER" layoutX="112.8" layoutY="288.0" prefHeight="46.0" prefWidth="411.0" AnchorPane.leftAnchor="113.0" AnchorPane.rightAnchor="181.0" AnchorPane.topAnchor="288.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pending requests">
                <font>
@@ -42,7 +49,7 @@
             </Text>
          </children>
       </HBox>
-      <ListView fx:id="list_view" layoutX="19.2" layoutY="259.2" prefHeight="222.0" prefWidth="663.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="259.0">
+      <ListView fx:id="list_view" layoutX="19.2" layoutY="336.8" prefHeight="227.0" prefWidth="663.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="337.0">
          <style>
             -fx-border-width:2px;
             -fx-border-radius:8px;
@@ -53,7 +60,7 @@
             <DropShadow color="#313131" offsetY="10" radius="18" />
          </effect>
       </ListView>
-      <Button fx:id="refresh_btn" layoutX="622.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" rotate="0.2" text="🔄" textFill="WHITE" AnchorPane.rightAnchor="23.0">
+      <Button fx:id="refresh_btn" layoutX="624.0" layoutY="307.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" rotate="0.2" text="🔄" textFill="WHITE" AnchorPane.rightAnchor="21.0">
          <style>
             -fx-border-width:0px;
             -fx-border-radius:8px;
@@ -65,73 +72,7 @@
             <DropShadow color="#313131" offsetY="6" radius="9" />
          </effect>
       </Button>
-      <VBox alignment="TOP_CENTER" layoutX="136.0" prefHeight="190.0" prefWidth="425.0" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fx:id="logo" fitHeight="146.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@file_0000000011a061f5af8ad9fcc87fe1ef.png" />
-               </image>
-               <viewport>
-                  <Rectangle2D />
-               </viewport>
-               <VBox.margin>
-                  <Insets left="23.0" />
-               </VBox.margin>
-               
-            </ImageView>
-            <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="RNS FGC">
-               <font>
-                  <Font name="Cambria Math" size="15.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="28.0" top="-23.0" />
-               </VBox.margin>
-               <fill>
-                  <RadialGradient centerX="0.49118943571519225" centerY="0.5037878571134625" focusAngle="-168.31" focusDistance="-0.01834869384765625" radius="0.7110091480640096">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.4736842215061188" green="0.4736842215061188" blue="0.4736842215061188" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.007680491551459294">
-                           <color>
-                              <Color red="0.4421052634716034" green="0.4421052634716034" blue="0.4421052634716034" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.24210526049137115" green="0.24210526049137115" blue="0.24210526049137115" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </fill>
-            </Text>
-         </children>
-      </VBox>
-      <Button fx:id="pfp_btn" layoutX="651.2" layoutY="4.8" mnemonicParsing="false" prefHeight="39.0" prefWidth="41.0" AnchorPane.rightAnchor="11.399999999999977" AnchorPane.topAnchor="3.8">
-         <graphic>
-            <ImageView fitHeight="63.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pfp_img.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <style>
-            -fx-background-color:transparent;
-         </style>
-         <effect>
-            <DropShadow color="#424242" offsetY="8" radius="8" />
-         </effect>
-      </Button>
-      <VBox fx:id="slide_bar" layoutX="565.0" layoutY="44.0" prefHeight="146.0" prefWidth="172.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="65.0">
-         <style>
-            -fx-background-color:rgb(242, 242, 242);
-            -fx-border-width:0px;
-            -fx-background-radius:8px;
-            -fx-border-radius:8px;
-         </style>
+      <VBox fx:id="slide_bar" layoutX="524.0" layoutY="150.0" prefHeight="146.0" prefWidth="172.0" style="-fx-background-color:white;" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="150.0">
          <effect>
             <DropShadow color="#424242" offsetY="8" radius="8" />
          </effect>
@@ -153,12 +94,12 @@
             <Button fx:id="close_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color:transparent;" text="❌ Close " />
          </children>
       </VBox>
-      <Button fx:id="menue_btn" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" text="☰">
+      <Button fx:id="menue_btn" layoutX="7.0" layoutY="154.0" mnemonicParsing="false" text="☰">
          <style>
             -fx-background-color:transparent;
          </style>
       </Button>
-      <VBox fx:id="action_vbox" alignment="TOP_CENTER" layoutX="14.0" layoutY="44.0" prefHeight="62.0" prefWidth="98.0">
+      <VBox fx:id="action_vbox" alignment="TOP_CENTER" layoutX="8.0" layoutY="180.0" prefHeight="62.0" prefWidth="98.0">
          <style>
             -fx-background-color:rgb(242, 242, 242);
             -fx-background-radius:8px;
@@ -192,6 +133,96 @@
             </Text>
          </children>
       </VBox>
+      <AnchorPane prefHeight="146.0" prefWidth="705.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <style>
+            -fx-background-color:rgb(4, 33, 91);
+         </style>
+         <children>
+            <Button fx:id="pfp_btn" layoutX="622.0" layoutY="24.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="41.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="24.0">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pfp_img.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <style>
+            -fx-background-color:transparent;
+         </style>
+               <effect>
+                  <DropShadow height="17.0" offsetY="8.0" radius="8.0" width="17.0" />
+               </effect>
+            </Button>
+            <VBox alignment="CENTER" layoutX="280.0" layoutY="-4.0" prefHeight="120.0" prefWidth="140.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@file_0000000011a061f5af8ad9fcc87fe1ef.png" />
+                     </image>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox layoutX="5.0" prefHeight="150.0" prefWidth="150.0">
+               <children>
+                  <ImageView fitHeight="144.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@applogo.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <Text layoutX="623.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN" AnchorPane.rightAnchor="26.28515625" AnchorPane.topAnchor="105.6103515625">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color green="0.8134517669677734" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.029999999329447746" green="0.39067259430885315" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="113.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEMINAR HALL">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="20.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.43020305037498474" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9796953201293945" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text fill="WHITE" layoutX="113.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking System" />
+         </children>
+      </AnchorPane>
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

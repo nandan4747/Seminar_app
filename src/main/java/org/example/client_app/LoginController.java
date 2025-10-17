@@ -169,9 +169,7 @@ public class LoginController {
                 warning_text.setText("                      incorrect username or password or branch!!!!!!!!!");
 
             }
-            // Show alert for demonstration
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Login attempted for " + department);
-            alert.showAndWait();
+
         }
         else{
             warning_text.setText("                      please enter username and password!!!!!!!!!");

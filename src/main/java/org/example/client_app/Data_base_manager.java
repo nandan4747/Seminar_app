@@ -21,7 +21,7 @@ public class Data_base_manager {
     public void primary_setup(){
         try {
             this.connection = DriverManager.getConnection(url);
-            /*PreparedStatement ps = connection.prepareStatement("drop table user_login_information;");
+           /* PreparedStatement ps = connection.prepareStatement("drop table user_login_info;");
             ps.executeUpdate();
             System.out.println("done");*/
         } catch (SQLException e) {
