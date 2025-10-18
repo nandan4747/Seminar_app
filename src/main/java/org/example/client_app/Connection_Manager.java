@@ -26,20 +26,20 @@ public class Connection_Manager {
             this.socket = new Socket(host, port);
             this.out = new PrintWriter(socket.getOutputStream(),true);
             this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            System.out.println("connected");
+          //  System.out.println("connected");
             Main_Booking_Application.move_forword = true;
         } catch (IOException e) {
+           // System.out.println("1st fail");
             String ip = db_manager.get_server_ip();
             try {
                 this.socket = new Socket(ip, 56000);
                 this.out = new PrintWriter(socket.getOutputStream(),true);
                 this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                System.out.println("connected");
-                System.out.println("2nd");
-                System.out.println(ip);
+
                 Main_Booking_Application.move_forword = true;
 
             } catch (IOException ex) {
+             //   System.out.println("2nd fail");
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("server_ip_input_page.fxml"));
                     Scene scene = new Scene(root,684,526);

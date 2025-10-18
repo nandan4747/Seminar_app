@@ -21,7 +21,7 @@ public class Data_base_manager {
     public void primary_setup(){
         try {
             this.connection = DriverManager.getConnection(url);
-           /* PreparedStatement ps = connection.prepareStatement("drop table user_login_info;");
+          /*  PreparedStatement ps = connection.prepareStatement("drop table user_login_info;");
             ps.executeUpdate();
             System.out.println("done");*/
         } catch (SQLException e) {
@@ -101,7 +101,7 @@ public class Data_base_manager {
     }
     public void add_ip_address(String ip){
         try {
-            String quarry = "insert into server_ip_info()values(?);";
+            String quarry = "insert into server_ip_info(ipaddress)values(?);";
             PreparedStatement preparedStatement = connection.prepareStatement(quarry);
             preparedStatement.setString(1,ip);
             preparedStatement.executeUpdate();

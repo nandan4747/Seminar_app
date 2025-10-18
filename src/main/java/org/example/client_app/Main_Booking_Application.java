@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ public class Main_Booking_Application extends Application {
         // database connection
         Data_base_manager_helper db_helper = new Data_base_manager_helper();
         Data_base_manager db_manager = db_helper.get_data_base_manager();
+
         db_manager.primary_setup();
         // creates table if not exists
         db_manager.initial_setup();
@@ -40,7 +42,7 @@ public class Main_Booking_Application extends Application {
 
 
             remember_me = db_manager.get_remember_me();
-            System.out.println("remember:" + remember_me);
+           // System.out.println("remember:" + remember_me);
             // UI
             if (remember_me == 0) {
                 this.fxmlLoader = new FXMLLoader(Main_Booking_Application.class.getResource("Login.fxml"));
@@ -59,6 +61,8 @@ public class Main_Booking_Application extends Application {
                     this.fxmlLoader = new FXMLLoader(Main_Booking_Application.class.getResource("Main_Admin_page.fxml"));
                 }
             }
+            Image icone = new Image(getClass().getResourceAsStream("/org/example/client_app/applogo.jpg"));
+            stage.getIcons().add(icone);
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Seminar Hall Booking System");
             stage.setScene(scene);
