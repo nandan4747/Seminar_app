@@ -141,15 +141,6 @@ public class BookingStatusController implements Initializable {
         stage.close();
     }
 
-    /**
-     * Simulates fetching a raw data string from a server.
-     * @return A string containing booking data in a structured format.
-     */
-    private String fetchDataFromServer() {
-        // This string mimics a response from a server API.
-        // Format: [[date, ^course, ^year, ^user, ^status.], [next_record...]]
-        return "[[2025-08-10,^BCA,^3,^Tejas S,^Approved.],[2025-08-12,^BBA,^2,^Alex Ray,^Pending.],[2025-08-15,^MBA,^1,^Priya Sharma,^Pending.],[2025-08-18,^BCA,^3,^John Doe,^Denied.],[2025-08-22,^MBA,^2,^Emily White,^Approved.]]";
-    }
 
     /**
      * Parses the raw server data and updates the UI.
@@ -202,7 +193,7 @@ public class BookingStatusController implements Initializable {
             switch (status.toLowerCase()) {
                 case "approved" -> approved++;
                 case "pending" -> pending++;
-                case "denied" -> denied++;
+                case "rejected" -> denied++;
             }
         }
 

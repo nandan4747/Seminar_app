@@ -46,7 +46,7 @@ public class Main_Admin_page_Controller implements Initializable {
 
     public void See_all_request(String response) {
         list_view.getItems().clear();
-        System.out.println("exe function");
+       // System.out.println("exe function");
 
         //System.out.println(response);
         if (!response.equals("[]")) {

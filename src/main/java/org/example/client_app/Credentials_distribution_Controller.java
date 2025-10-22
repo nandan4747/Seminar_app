@@ -71,40 +71,46 @@ public class Credentials_distribution_Controller implements Initializable {
             String username = new_username.getText();
             String password = new_password.getText();
             String branch = Main_Booking_Application.branch;
-            if(!username.isEmpty() && !password.isEmpty()){
-                if(operation.equals("new_user")){
-                    connectionManager.push_request(header+","+operation+","+username +","+password + "," + branch);
+            if(!username.isEmpty() && !password.isEmpty()) {
+
+                if (operation.equals("new_user")) {
+                    connectionManager.push_request(header + "," + operation + "," + username + "," + password + "," + branch);
                 } else if (operation.equals("new_admin")) {
-                    connectionManager.push_request(header +","+ operation + ","+ username +","+ password +","+ branch);
+                    connectionManager.push_request(header + "," + operation + "," + username + "," + password + "," + branch);
                 }
-            }
-            String response;
-            do{
-                try{
-                    Thread.sleep(1500);
-                    response = connectionManager.get_Response();
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+
+                String response;
+                do {
+                    try {
+                        Thread.sleep(1500);
+                        response = connectionManager.get_Response();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                } while (response == null);
+
+                if (response.equals("<Done>")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success");
+                    alert.setContentText("new user Registered successfully..");
+                    alert.show();
+                    warning_message.setText("new user Registered!!!!");
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("error");
+                    alert.setContentText("Some error occurred please try again...");
+                    alert.show();
+                    warning_message.setText("Some error occurred please try again... ");
+
                 }
-            }while (response.isEmpty());
-
-            if(response.equals("<Done>")){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Success");
-                alert.setContentText("new user Registered successfully..");
+                new_username.setText("");
+                new_password.setText("");
+            }else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Empty");
+                alert.setContentText("Text field(s) is Empty..");
                 alert.show();
-                warning_message.setText("new user Registered!!!!");
             }
-            else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("error");
-                alert.setContentText("Some error occurred please try again...");
-                alert.show();
-                warning_message.setText("Some error occurred please try again... ");
-
-            }
-            new_username.setText("");
-            new_password.setText("");
         });
 
         back_btn.setOnAction(event -> {

@@ -31,7 +31,7 @@
                     </children>
                 </StackPane>
 
-                <VBox alignment="CENTER" layoutX="82.4" prefWidth="368.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <VBox alignment="CENTER" layoutX="82.4" prefWidth="368.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="62.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Label text="Booking Status" textFill="WHITE">
                             <font><Font name="System Bold" size="20.0" /></font>
@@ -114,7 +114,7 @@
                                 </HBox>
                             </left>
                             <right>
-                                <Label text="5 bookings" textFill="GRAY" BorderPane.alignment="CENTER" />
+                                <Label fx:id="counter" textFill="GRAY" BorderPane.alignment="CENTER" />
                             </right>
                      <center>
                         <Text fx:id="anouncer" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading Please wait.." wrappingWidth="173.51758575439453" BorderPane.alignment="CENTER" />

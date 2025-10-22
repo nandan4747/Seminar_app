@@ -1,6 +1,6 @@
 package org.example.client_app;
 
-import javafx.application.Platform;
+
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Popup;
+
 import javafx.stage.Stage;
 
-import javax.swing.text.DateFormatter;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -168,8 +168,9 @@ public class Hall_booking_Controller implements Initializable {
             datePicker.setValue(null);
             slotComboBox.setValue(null);
             purpose.setText("");
-            System.out.println("username"+username);
-            System.out.println("put,"+date +","+username+","+branch+","+Purpose+","+slot);
+             //  System.out.println("username"+username);
+            //System.out.println("put,"+date +","+username+","+branch+","+Purpose+","+slot);
+            Purpose = Purpose.replace(" ","_");
             connectionManager.push_request("put,"+date +","+username+","+branch+","+Purpose+","+slot);
             date = null;
             Purpose = null;
@@ -187,7 +188,7 @@ public class Hall_booking_Controller implements Initializable {
                             System.out.println("error while reading response");
                             throw new RuntimeException(e);
                         }
-                    }while (response.equals(null));
+                    }while (response == null);
                     return response;
                 }
             };

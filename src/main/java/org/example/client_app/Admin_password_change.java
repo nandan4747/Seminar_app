@@ -56,7 +56,7 @@ public class Admin_password_change implements Initializable {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-            }while (response.isEmpty());
+            }while (response == null);
 
             old_password_text.clear();
             new_password_text.clear();
